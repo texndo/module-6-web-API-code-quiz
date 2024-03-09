@@ -33,6 +33,25 @@ function startQuiz () {
     showQuestions();
     startTimer();
 }
+//* Functions to display a qeustion *\\
+function showQuestion() {
+    //* Retrieve current question and options *\\
+    const { question, options } = questions[currentQuestionIndex];
+    //* Display question title *\\
+    questionsTitle.innerText = question;
+    //* Clear previous choices *\\
+    choicesContainer.innerHTML = '';
+    //* Create buttons for each option *\\
+    options.forEach((option, i) => {
+        const button = document.createElement("button");
+        button.innerText = option;
+        button.classList.add("choice-btn");
+        //* Add event listener to check answer when button is clicked *\\
+        button.addEventListener("click", () => checkAnswer(i));
+        choicesContainer.appendChild(button);
+    });
+}
+
 
 
 
