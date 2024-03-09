@@ -16,3 +16,9 @@ if (userInitials && userScores) {
     highScoreListElement.appendChild (listItem);
 }
 
+//* Remove highscore when clear button is clicked *\\
+
+clearBtn.addEventListender("click", function () {
+    highScoreListElement.innerHTML = "";
+});
+
