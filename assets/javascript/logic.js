@@ -1,4 +1,4 @@
-// Get references to HTML elements
+//* Get references to HTML elements *\\
 const startButton = document.getElementById("start");
 const startScreen = document.getElementById("start-screen");
 const timerElement = document.getElementById("time");
@@ -13,16 +13,16 @@ const feedbackElement = document.getElementById("feedback");
 const correctSound = new Audio("./assets/sfx/correct.wav");
 const incorrectSound = new Audio("./assets/sfx/incorrect.wav");
 
-// Initialize variables
+//* Initialize variables *\\
 let currentQuestionIndex = 0;
 let score = 0;
 let time = 60;
 let timer;
 
-// Add event listener to start button to begin the quiz
+//* Add event listener to start button to begin the quiz *\\
 startButton.addEventListener("click", startQuiz);
 
-// Function to start the quiz
+//* Function to start the quiz *\\
 function startQuiz(){
     // Hide start screen and show questions
     startScreen.classList.add("hide");
@@ -31,26 +31,26 @@ function startQuiz(){
     startTimer();
 }
 
-// Function to display a question
+//* Function to display a question *\\
 function showQuestion(){
-    // Retrieve current question and options
+    //* Retrieve current question and options *\\
     const { question, options } = questions[currentQuestionIndex];
-    // Display question title
+    //* Display question title *\\
     questionsTitle.innerText = question;
-    // Clear previous choices
+    //* Clear previous choices *\\
     choicesContainer.innerHTML = '';
-    // Create buttons for each option
+    //* Create buttons for each option *\\
     options.forEach((option, i) => {
         const button = document.createElement("button");
         button.innerText = option;
         button.classList.add("choice-btn");
-        // Add event listener to check answer when button is clicked
+        //* Add event listener to check answer when button is clicked *\\
         button.addEventListener("click", () => checkAnswer(i));
         choicesContainer.appendChild(button);
     });
 }
 
-// Function to check selected answer
+//* Function to check selected answer *\\
 function checkAnswer(index){
     const { options, correctAnswer } = questions[currentQuestionIndex];
     if (options[index] === correctAnswer){
@@ -60,9 +60,9 @@ function checkAnswer(index){
     } else {
         time -= 10;
         incorrectSound.play();
-        showFeedback("Wrong Answer");
+        showFeedback("Wrong!");
     }
-    // Move to next question
+    //* Move to next question*\\
     if (++currentQuestionIndex < questions.length){
         showQuestion();
     } else {
@@ -70,7 +70,7 @@ function checkAnswer(index){
     }
 }
 
-// Function to start timer
+//* Function to start timer *\\
 function startTimer(){
     timer = setInterval(() => {
         if (time <= 0){
@@ -81,7 +81,7 @@ function startTimer(){
     }, 1000);
 }
 
-// Function to end the quiz
+//* Function to end the quiz *\\
 function endQuiz(){
     clearInterval(timer);
     questionsContainer.classList.add("hide");
@@ -90,12 +90,12 @@ function endQuiz(){
     finalScore.innerText = score;
 }
 
-// Function to display feedback
+//* Function to display feedback *\\
 function showFeedback(message){
     feedbackElement.innerText = message;
 }
 
-// Add event listener to submit button to save user initials and score, and redirect to highscores page
+//* Add event listener to submit button to save user initials and score, and redirect to highscores page *\\
 submitButton.addEventListener("click", () => {
     localStorage.setItem("initial", initials.value);
     localStorage.setItem("score", score);
