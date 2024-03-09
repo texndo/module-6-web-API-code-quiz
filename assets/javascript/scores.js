@@ -25,3 +25,4 @@ function saveHighscore(initials, score) {
     localStorage.setItem("scores", JSON.stringify(scoresArray));
 }
 
+
