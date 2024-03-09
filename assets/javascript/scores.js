@@ -10,3 +10,9 @@ const highScoreListElement = document.getElementById("highscores");
 
 //* Display user initials and scores *\\
 
+if (userInitials && userScores) {
+    const listItem = document.createElement ("li");
+    listItem.textContent = '${userInitials} - ${userScores}';
+    highScoreListElement.appendChild (listItem);
+}
+
