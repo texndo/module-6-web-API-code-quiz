@@ -53,6 +53,61 @@ function showQuestion() {
 }
 
 
+//* Function to check selected answer *// 
+function checkAnswer(index) {
+    const { options, correctAnswer } = questions[currentQuestionIndex];
+    if (options[index] == correctAnswer) {
+        score++;
+        correctSound.play();
+        showFeedback("Correct");
+    } else {
+        time -= 10;
+        incorrectSound.play();
+        showFeedback("Wrong Answer");
+    }
+}
+//* Move to the next question *\\
+if (++currentQuestionIndex < questions.length) {
+    showQuestion();
+} else {
+    endQuiz();
+}
+
+//* Function to start the timer *\\ 
+function startTimer() {
+    timer = setInterval(() => {
+        if (time <= 0) {
+            endQuiz();
+        } else {
+            timerElement.textContent = time--;
+        }
+    }, 1000);
+}
+
+//* Function to end the quiz *\\ 
+function endQuiz() {
+    clearInterval(timer);
+    questionsContainer.classList.add("hide");
+    endScreen.classList.remove("hide");
+    showFeedback("");
+    finalScore.innerText = score;
+}
+
+//* Function to display feedback *//
+function showFeedback(message){
+    feedbackElement.innerText = message;
+}
+
+//* Add event listener to submit button to save user initials and score, and redirect to highscore page *\\
+sibmitButton.addEventListener("click", () => {
+    localStorage.setItem("initial", initials.value);
+    localStorage.setItem("score", score);
+    location.href - "./highscores.html";
+});
+
+
+
+
 
 
 
