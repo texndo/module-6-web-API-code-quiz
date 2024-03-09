@@ -30,7 +30,11 @@ https://github.com/texndo/module-6-web-API-code-quiz/assets/151543445/27177917-0
 
 4. The timer will begin counting down from '60' and will go down by a second from the moment you begin, for each incorrect answer, the timer will reduce more and more until it runs out and calculates your total score. 
 
-5. After the timer runs out, you'll be taken to a screen that will show you the total score and it shall ask for your initials. 
+5. After the timer runs out, you'll be taken to a screen that will show you the total score and it shall ask for your initials.
+
+## Link to deployed application 
+
+
 
 ## License 
 
