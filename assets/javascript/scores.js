@@ -4,7 +4,7 @@ const clearBtn = document.getElementById("clear");
 const highScoreListElement = document.getElementById("highscores");
 
 if (userInitials && userScores) {
-    highScoreListElement.innerHTML += '<li>${userInitials} - ${userScores}</li>';
+    highScoreListElement.innerHTML += `<li>${userInitials} - ${userScores}</li>`;
 }
 
 clearBtn.addEventListener("click", () => {
@@ -13,7 +13,7 @@ clearBtn.addEventListener("click", () => {
 
 function saveHighscore(initials, score) {
     const existingInitials = localStorage.getItem("initials");
-    const existingScores = local.Storage.getItem("scores");
+    const existingScores = localStorage.getItem("scores");
 
     let initialsArray = existingInitials ? JSON.parse(existingInitials) : [];
     let scoresArray = existingScores ? JSON.parse(existingScores) : [];
