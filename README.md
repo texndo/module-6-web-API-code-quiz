@@ -34,7 +34,7 @@ https://github.com/texndo/module-6-web-API-code-quiz/assets/151543445/27177917-0
 
 ## Link to deployed application 
 
-
+https://texndo.github.io/module-6-web-API-code-quiz/
 
 ## License 
 
